@@ -24,6 +24,6 @@ class Model
 
   public function execute_qry($qry)
   {
-    return $this->conn->query($sql);
+    return $this->conn->query($qry);
   }
 }
