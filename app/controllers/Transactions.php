@@ -32,7 +32,7 @@ class Transactions extends Controller
     $response_data = json_decode($response,true);
     $results = $tran->create($_POST,$data_dis,$response_data);
     if($results == true){
-      $this->redirect('/flip_service_disburse/public/transactions/index?success=1');
+      $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=1');
     }else{
       print_r($results);
     }
@@ -53,7 +53,7 @@ class Transactions extends Controller
     $response_data = json_decode($response,true);
     $results = $tran->update($_GET['trans_id'],$response_data);
     if($results == true){
-      $this->redirect('/flip_service_disburse/public/transactions/index?success=2');
+      $this->redirect('$GLOBALS['BASE_URL']./transactions/index?success=2');
     }else{
       print_r($results);
     }
