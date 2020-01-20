@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/style.css">
 <div class="container">
   <h2>List Transactions</h2>
   <div><a href="<?php echo $GLOBALS['BASE_URL'].'/transactions/baru'; ?>">New Transaction</a></div>
