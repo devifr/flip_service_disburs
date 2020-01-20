@@ -3,9 +3,16 @@ class Transactions extends Controller
 {
   public function index()
   {
+    $tran = $this->model('transaction');
+    $data['transactions'] = $tran->lists();
+    $this->view('transactions/index',$data);
+  }
+
+  public function baru()
+  {
     $data['banks'] = ['BNI','BCA','Mandiri','Cimb Niaga','Muamalat','BSM'];
     $data['no_transaksi'] = $this->generate_no_transaksi();
-    $this->view('transactions/index',$data);
+    $this->view('transactions/new',$data);
   }
 
   public function create()
@@ -25,7 +32,7 @@ class Transactions extends Controller
     $response_data = json_decode($response,true);
     $results = $tran->create($_POST,$data_dis,$response_data);
     if($results == true){
-      $this->redirect('/flip_service_disburse/public/transactions/index');
+      $this->redirect('/flip_service_disburse/public/transactions/index?success=1');
     }else{
       print_r($results);
     }
