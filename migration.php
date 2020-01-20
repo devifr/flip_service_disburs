@@ -1,8 +1,10 @@
 <?php
-$servername = "localhost:3306";
-$username = "root";
-$password = "root";
-$dbname = "flip_service_disburse";
+require_once 'app/config/global_variable.php';
+
+$servername = $GLOBALS['SERVER_NAME'];
+$username = $GLOBALS['USER_NAME'];
+$password = $GLOBALS['PASS'];
+$dbname = $GLOBALS['DBNAME'];
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 // Check connection

@@ -53,7 +53,7 @@ class Transactions extends Controller
     $response_data = json_decode($response,true);
     $results = $tran->update($_GET['trans_id'],$response_data);
     if($results == true){
-      $this->redirect('$GLOBALS['BASE_URL']./transactions/index?success=2');
+      $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=2');
     }else{
       print_r($results);
     }
