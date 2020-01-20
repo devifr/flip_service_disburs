@@ -38,9 +38,8 @@ class Transactions extends Controller
     }
   }
 
-  public function refresh(){
+  public function refresh($tran_id){
     $tran = $this->model('transaction');
-    $tran_id = $_GET['trans_id'];
     $ch = curl_init('https://nextar.flip.id/disburse/'.$tran_id);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -51,13 +50,19 @@ class Transactions extends Controller
     $response = curl_exec($ch);
     curl_close($ch);
     $response_data = json_decode($response,true);
-    $results = $tran->update($_GET['trans_id'],$response_data);
+    $results = $tran->update($tran_id,$response_data);
     if($results == true){
       $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=2');
     }else{
       print_r($results);
     }
 
+  }
+
+  public function show($id){
+    $tran = $this->model('transaction');
+    $data['transaction'] = $tran->get_by_id($id);
+    $this->view('transactions/show',$data);
   }
 
   private function generate_no_transaksi()
