@@ -15,7 +15,8 @@
         <td><?php echo $row['bank_code']; ?></td>
         <td><?php echo $row['account_number']; ?></td>
         <td><?php echo $row['status']; ?></td>
-        <td><a href="/flip_service_disburse/public/transactions/refresh">Refresh</a></td>
+        <td><a href="/flip_service_disburse/public/transactions/refresh?trans_id=<?php echo $row['transaction_id']; ?>">Refresh</a></td>
       </tr>
-    <?php } ?>
+     <?php } ?>
   </tbody>
+</table>

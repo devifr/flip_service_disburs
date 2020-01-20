@@ -38,6 +38,28 @@ class Transactions extends Controller
     }
   }
 
+  public function refresh(){
+    $tran = $this->model('transaction');
+    $tran_id = $_GET['trans_id'];
+    $ch = curl_init('https://nextar.flip.id/disburse/'.$tran_id);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Authorization:' . 'Basic SHl6aW9ZN0xQNlpvTzduVFlLYkc4TzRJU2t5V25YMUp2QUVWQWh0V0tadW1vb0N6cXA0MTo=')
+    );
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+    $response_data = json_decode($response,true);
+    $results = $tran->update($_GET['trans_id'],$response_data);
+    if($results == true){
+      $this->redirect('/flip_service_disburse/public/transactions/index?success=2');
+    }else{
+      print_r($results);
+    }
+
+  }
+
   private function generate_no_transaksi()
   {
     return 'TR'.rand();
