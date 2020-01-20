@@ -37,6 +37,8 @@ status VARCHAR(25),
 beneficiary_name VARCHAR(50),
 receipt VARCHAR(255),
 time_served DateTime,
+created_at DateTime,
+updated_at DateTime,
 fee FLOAT(50),
 request TEXT,
 response TEXT
