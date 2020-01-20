@@ -1,6 +1,17 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="css/style.css">
 <div class="container">
+  <?php if(isset($_GET['success']) && $_GET['success'] == '1'){ ?>
+    <div class="alert-success">Your Transaction Have Created</div>
+  <?php }else if(isset($_GET['success']) && $_GET['success'] == '2'){ ?>
+    <div class="alert-success">Your Transaction Have Updated</div>
+  <?php }else if(isset($_GET['error']) && $_GET['error'] == '0'){ ?>
+    <div class="alert-error">Dont Get Response</div>
+  <?php }else if(isset($_GET['error']) && $_GET['error'] == '1'){ ?>
+    <div class="alert-error">Your Transaction Failed to Create</div>
+  <?php }else if(isset($_GET['error']) && $_GET['error'] == '2'){ ?>
+    <div class="alert-error">Your Transaction Failed to Update</div>
+  <?php } ?>
   <div class="content">
     <h2>List Transactions</h2>
     <div><a href="<?php echo $GLOBALS['BASE_URL'].'/transactions/baru'; ?>">New Transaction</a></div>

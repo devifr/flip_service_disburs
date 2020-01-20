@@ -29,12 +29,16 @@ class Transactions extends Controller
 
     $response = curl_exec($ch);
     curl_close($ch);
-    $response_data = json_decode($response,true);
-    $results = $tran->create($_POST,$data_dis,$response_data);
-    if($results == true){
-      $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=1');
+    if($response){
+      $response_data = json_decode($response,true);
+      $results = $tran->create($_POST,$data_dis,$response_data);
+      if($results == true){
+        $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=1');
+      }else{
+        $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?error=1');
+      }
     }else{
-      print_r($results);
+      $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?error=0');  
     }
   }
 
@@ -49,12 +53,16 @@ class Transactions extends Controller
 
     $response = curl_exec($ch);
     curl_close($ch);
-    $response_data = json_decode($response,true);
-    $results = $tran->update($tran_id,$response_data);
-    if($results == true){
-      $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=2');
+    if($response){
+      $response_data = json_decode($response,true);
+      $results = $tran->update($tran_id,$response_data);
+      if($results == true){
+        $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=2');
+      }else{
+        $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?error=2');
+      }
     }else{
-      print_r($results);
+      $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?error=0');
     }
 
   }

@@ -9,7 +9,7 @@
         <?php echo $data['no_transaksi']; ?>
       </div>
       <div class="form-group">
-        <label>Kode Bank*</label>
+        <label>Kode Bank</label>
         <select name="bank_code" class="form-control">
           <?php foreach ($data['banks'] as $key => $bank) {
             echo "<option value=$bank>$bank</option>";
@@ -17,7 +17,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Account Number*</label>
+        <label>Account Number</label>
         <input type="text" name="account_number" class="form-control" required/>
       </div>
       <div class="form-group">
