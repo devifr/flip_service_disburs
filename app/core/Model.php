@@ -10,10 +10,10 @@ class Model
 
   public function connect()
   {
-    $servername = "localhost:3306";
-    $username = "root";
-    $password = "root";
-    $dbname = "flip_service_disburse";
+    $servername = $GLOBALS['SERVER_NAME'];
+    $username = $GLOBALS['USER_NAME'];
+    $password = $GLOBALS['USER_NAME'];
+    $dbname = $GLOBALS['DBNAME'];
     // Create connection
     $this->conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
