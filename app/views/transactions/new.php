@@ -18,11 +18,11 @@
       </div>
       <div class="form-group">
         <label>Account Number</label>
-        <input type="text" name="account_number" class="form-control" required/>
+        <input type="number" name="account_number" class="form-control" required/>
       </div>
       <div class="form-group">
         <label>Amount</label>
-        <input type="integer" name="amount" class="form-control" required/>
+        <input type="number" name="amount" class="form-control" required/>
       </div>
       <div class="form-group">
         <label>Remark</label>
