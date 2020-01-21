@@ -1,6 +1,6 @@
 Test For Join In Flip Team
 Change base_url, servername, username, password, or dbname with your environment or credential in app/config/global_variable
-then run migration use php migration.php
+on base_url just change "flip_service_disburse" to your project name then run migration use php migration.php
 then to run disburse
 1. access web/application localhost/{project_name}/ or localhost/{project_name}/public/transactions/index
 2. create new transaction
