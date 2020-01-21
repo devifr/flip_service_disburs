@@ -37,6 +37,14 @@
         <span class="form-control"><?php echo $row['time_served']; ?></span>
       </div>
       <div class="form-group">
+        <label>Created At : </label>
+        <span class="form-control"><?php echo $row['created_at']; ?></span>
+      </div>
+      <div class="form-group">
+        <label>Updated At : </label>
+        <span class="form-control"><?php echo $row['updated_at']; ?></span>
+      </div>
+      <div class="form-group">
         <label>Fee : </label>
         <span class="form-control"><?php echo $row['fee']; ?></span>
       </div>
