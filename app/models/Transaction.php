@@ -28,7 +28,7 @@ class Transaction extends Model
 
   public function get_by_id($id)
   {
-    $sql = "SELECT * from our_transaction";
+    $sql = "SELECT * from our_transaction where id='$id'";
     return $this->execute_qry($sql);
   }
 
