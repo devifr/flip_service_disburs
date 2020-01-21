@@ -33,12 +33,12 @@ class Transactions extends Controller
       $response_data = json_decode($response,true);
       $results = $tran->create($_POST,$data_dis,$response_data);
       if($results == true){
-        $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=1');
+        $this->redirect('http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/index?success=1');
       }else{
-        $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?error=1');
+        $this->redirect('http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/index?error=1');
       }
     }else{
-      $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?error=0');  
+      $this->redirect('http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/index?error=0');  
     }
   }
 
@@ -57,12 +57,12 @@ class Transactions extends Controller
       $response_data = json_decode($response,true);
       $results = $tran->update($tran_id,$response_data);
       if($results == true){
-        $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?success=2');
+        $this->redirect('http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/index?success=2');
       }else{
-        $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?error=2');
+        $this->redirect('http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/index?error=2');
       }
     }else{
-      $this->redirect($GLOBALS['BASE_URL'].'/transactions/index?error=0');
+      $this->redirect('http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/index?error=0');
     }
 
   }

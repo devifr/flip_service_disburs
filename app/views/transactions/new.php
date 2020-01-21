@@ -2,7 +2,7 @@
 <div class="container">
   <div class="content">
     <h2>Create New Transaction</h2>
-    <form action="<?php echo $GLOBALS['BASE_URL'].'/transactions/create'; ?>" method="POST" name="form_transaction" id="form_transaction">
+    <form action="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/create'; ?>" method="POST" name="form_transaction" id="form_transaction">
       <div class="form-group">
         <label>No Transaksi</label/>
         <input type="hidden" name="no_transaksi" value="<?php echo $data['no_transaksi']; ?>"/>
@@ -30,7 +30,7 @@
       </div>
       <div class="form-group">
         <input type="submit" value="Create" class="btn-primary">
-        <a href="<?php echo $GLOBALS['BASE_URL'].'/transactions/index'; ?>" class="btn-default">Back</a>
+        <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/index'; ?>" class="btn-default">Back</a>
       </div>
     </form>
   </div>

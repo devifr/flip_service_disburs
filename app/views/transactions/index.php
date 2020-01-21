@@ -14,7 +14,7 @@
   <?php } ?>
   <div class="content">
     <h2>List Transactions</h2>
-    <div><a href="<?php echo $GLOBALS['BASE_URL'].'/transactions/baru'; ?>">New Transaction</a></div>
+    <div><a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/baru'; ?>">New Transaction</a></div>
     <table class="table">
       <thead>
         <tr>
@@ -35,17 +35,18 @@
             <td><?php echo $row['status']; ?></td>
             <td>
               <?php if($row['status'] != "SUCCESS"){ ?>
-                <a href="<?php echo $GLOBALS['BASE_URL'].'/transactions/refresh/'.$row["transaction_id"]; ?>">Refresh</a>
+                <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/refresh/'.$row["transaction_id"]; ?>">Refresh</a>
               <?php }else{
                 echo "Done";
               } ?>
-              <a href="<?php echo $GLOBALS['BASE_URL'].'/transactions/show/'.$row["id"]; ?>">Show</a>
+              <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/show/'.$row["id"]; ?>">Show</a>
             </td>
           </tr>
          <?php } ?>
-       <?php }else{
-         echo "Not Data Available";
-       } ?>
+       <?php }else{ ?>
+         <tr>
+           <td colspan="5">Not Data Available</td>
+       <?php } ?>
       </tbody>
     </table>
   </div>

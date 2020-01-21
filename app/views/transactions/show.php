@@ -3,7 +3,7 @@
   <div class="content">
     <?php $row = $data['transaction']->fetch_assoc(); ?>
     <h2>Transaction No <?php echo $row['transaction_id']; ?></h2>
-    <form action="<?php echo $GLOBALS['BASE_URL'].'/transactions/create'; ?>" method="POST" name="form_transaction" id="form_transaction">
+    <form action="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/create'; ?>" method="POST" name="form_transaction" id="form_transaction">
       <div class="form-group">
         <label>No Transaksi : </label/>
         <span class="form-control"><?php echo $row['transaction_id']; ?></span>
@@ -54,7 +54,7 @@
         </div>
       <?php } ?>
       <div class="form-group">
-        <a href="<?php echo $GLOBALS['BASE_URL'].'/transactions/index'; ?>" class="btn-default">Back</a>
+        <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/flip_service_disburs/public/'.'/transactions/index'; ?>" class="btn-default">Back</a>
       </div>
     </form>
   </div>
